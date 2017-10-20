@@ -77,6 +77,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraControllScript.cs" />
     <Compile Include="Assets\Scripts\FinishHoleScript.cs" />
+    <Compile Include="Assets\Scripts\GUIControll.cs" />
+    <Compile Include="Assets\Scripts\GameManagerScript.cs" />
+    <Compile Include="Assets\Scripts\MainMenuScript.cs" />
+    <Compile Include="Assets\Scripts\WindmillControllScript.cs" />
     <Compile Include="Assets\Scripts\ballControllScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

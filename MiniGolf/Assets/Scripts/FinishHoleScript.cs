@@ -1,11 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class FinishHoleScript : MonoBehaviour {
 
+    public ParticleSystem ballInTargetParticles;
+
     private int sceneIndex;
+
+    public bool isFinished;
 
     // Use this for initialization
     void Start () {
@@ -21,13 +24,24 @@ public class FinishHoleScript : MonoBehaviour {
     {
         if (other.name == "ball")
         {
-            if (sceneIndex < SceneManager.sceneCountInBuildSettings - 1)
-            {
-                SceneManager.LoadScene(sceneIndex + 1);
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            else
-                SceneManager.LoadScene(0);
+            StartCoroutine(GoToNextScene());
+        }
+    }
+
+    IEnumerator GoToNextScene()
+    {
+        isFinished = true;
+        ballInTargetParticles.Play();
+
+        yield return new WaitForSeconds(2);
+
+        if (sceneIndex < SceneManager.sceneCountInBuildSettings - 1)
+        {
+            SceneManager.LoadScene(sceneIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

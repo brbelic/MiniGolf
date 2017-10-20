@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraControllScript : MonoBehaviour {
-    
-    public Transform ballTransform;
     
     public SpriteRenderer aimPointer;
 
@@ -22,7 +18,7 @@ public class CameraControllScript : MonoBehaviour {
             aimPointer.enabled = true;
         }
 
-        transform.position = ballTransform.position;
+        transform.position = ball.transform.position;
 
         if (Input.GetKey("left"))
         {
@@ -33,6 +29,5 @@ public class CameraControllScript : MonoBehaviour {
         {
             transform.Rotate(0, 1, 0);
         }
-
     }
 }
